@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://www.bnisecurities.co.id" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.bnisecurities.co.id">
+    <wsdl:documentation>OnlineRegistrationService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.bnisecurities.co.id">
+            <xs:element name="OnlineRegistrationServiceException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OnlineRegistrationServiceException" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="registerForeign">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerForeignResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="register">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ping">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loadMaster">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="type" type="xs:int"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loadMasterResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiry">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkDataFromDukcapil">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="nik" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="tanggalLahir" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="jenisKelamin" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noHp" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkDataFromDukcapilResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="loadMasterRequest">
+        <wsdl:part name="parameters" element="ns:loadMaster"/>
+    </wsdl:message>
+    <wsdl:message name="loadMasterResponse">
+        <wsdl:part name="parameters" element="ns:loadMasterResponse"/>
+    </wsdl:message>
+    <wsdl:message name="OnlineRegistrationServiceException">
+        <wsdl:part name="parameters" element="ns:OnlineRegistrationServiceException"/>
+    </wsdl:message>
+    <wsdl:message name="registerForeignRequest">
+        <wsdl:part name="parameters" element="ns:registerForeign"/>
+    </wsdl:message>
+    <wsdl:message name="registerForeignResponse">
+        <wsdl:part name="parameters" element="ns:registerForeignResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pingRequest">
+        <wsdl:part name="parameters" element="ns:ping"/>
+    </wsdl:message>
+    <wsdl:message name="pingResponse">
+        <wsdl:part name="parameters" element="ns:pingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="inquiryRequest">
+        <wsdl:part name="parameters" element="ns:inquiry"/>
+    </wsdl:message>
+    <wsdl:message name="inquiryResponse">
+        <wsdl:part name="parameters" element="ns:inquiryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="loginRequest">
+        <wsdl:part name="parameters" element="ns:login"/>
+    </wsdl:message>
+    <wsdl:message name="loginResponse">
+        <wsdl:part name="parameters" element="ns:loginResponse"/>
+    </wsdl:message>
+    <wsdl:message name="checkDataFromDukcapilRequest">
+        <wsdl:part name="parameters" element="ns:checkDataFromDukcapil"/>
+    </wsdl:message>
+    <wsdl:message name="checkDataFromDukcapilResponse">
+        <wsdl:part name="parameters" element="ns:checkDataFromDukcapilResponse"/>
+    </wsdl:message>
+    <wsdl:message name="registerRequest">
+        <wsdl:part name="parameters" element="ns:register"/>
+    </wsdl:message>
+    <wsdl:message name="registerResponse">
+        <wsdl:part name="parameters" element="ns:registerResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OnlineRegistrationServicePortType">
+        <wsdl:operation name="loadMaster">
+            <wsdl:input message="ns:loadMasterRequest" wsaw:Action="urn:loadMaster"/>
+            <wsdl:output message="ns:loadMasterResponse" wsaw:Action="urn:loadMasterResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationServiceException" name="OnlineRegistrationServiceException" wsaw:Action="urn:loadMasterOnlineRegistrationServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <wsdl:input message="ns:registerForeignRequest" wsaw:Action="urn:registerForeign"/>
+            <wsdl:output message="ns:registerForeignResponse" wsaw:Action="urn:registerForeignResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationServiceException" name="OnlineRegistrationServiceException" wsaw:Action="urn:registerForeignOnlineRegistrationServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <wsdl:input message="ns:pingRequest" wsaw:Action="urn:ping"/>
+            <wsdl:output message="ns:pingResponse" wsaw:Action="urn:pingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <wsdl:input message="ns:inquiryRequest" wsaw:Action="urn:inquiry"/>
+            <wsdl:output message="ns:inquiryResponse" wsaw:Action="urn:inquiryResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationServiceException" name="OnlineRegistrationServiceException" wsaw:Action="urn:inquiryOnlineRegistrationServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <wsdl:input message="ns:loginRequest" wsaw:Action="urn:login"/>
+            <wsdl:output message="ns:loginResponse" wsaw:Action="urn:loginResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationServiceException" name="OnlineRegistrationServiceException" wsaw:Action="urn:loginOnlineRegistrationServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkDataFromDukcapil">
+            <wsdl:input message="ns:checkDataFromDukcapilRequest" wsaw:Action="urn:checkDataFromDukcapil"/>
+            <wsdl:output message="ns:checkDataFromDukcapilResponse" wsaw:Action="urn:checkDataFromDukcapilResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <wsdl:input message="ns:registerRequest" wsaw:Action="urn:register"/>
+            <wsdl:output message="ns:registerResponse" wsaw:Action="urn:registerResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationServiceException" name="OnlineRegistrationServiceException" wsaw:Action="urn:registerOnlineRegistrationServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OnlineRegistrationServiceSoap11Binding" type="ns:OnlineRegistrationServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="loadMaster">
+            <soap:operation soapAction="urn:loadMaster" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <soap:operation soapAction="urn:registerForeign" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <soap:operation soapAction="urn:ping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <soap:operation soapAction="urn:login" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <soap:operation soapAction="urn:inquiry" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkDataFromDukcapil">
+            <soap:operation soapAction="urn:checkDataFromDukcapil" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <soap:operation soapAction="urn:register" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="OnlineRegistrationServiceHttpBinding" type="ns:OnlineRegistrationServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="loadMaster">
+            <http:operation location="loadMaster"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <http:operation location="registerForeign"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <http:operation location="ping"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <http:operation location="login"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <http:operation location="inquiry"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkDataFromDukcapil">
+            <http:operation location="checkDataFromDukcapil"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <http:operation location="register"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="OnlineRegistrationService">
+        <wsdl:port name="OnlineRegistrationServiceHttpSoap11Endpoint" binding="ns:OnlineRegistrationServiceSoap11Binding">
+            <soap:address location="http://192.168.1.32:8080/ws/services/OnlineRegistrationService/"/>
+        </wsdl:port>
+        <wsdl:port name="OnlineRegistrationServiceHttpEndpoint" binding="ns:OnlineRegistrationServiceHttpBinding">
+            <http:address location="http://192.168.1.32:8080/ws/services/OnlineRegistrationService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

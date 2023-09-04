@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page | theuicode.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        <div class="login">
+            <h3 class="title">Report PDF</h3>
+            <div class="text-input">
+                <i class="ri-file-text-fill"></i>
+                <input type="text" id= "formno" placeholder="Form Number">
+            </div>
+            <div class="text-input">
+                <i class="ri-mail-fill"></i>
+                <input type="text" id="email" placeholder="Email">
+            </div>
+            <div class="text-input">
+                <i class="ri-building-4-fill"></i>
+            
+                <select name="branch-bnis" id="branch">
+                    <option value="1113">BANDA ACEH</option>
+                    <option value="1303">BANDUNG</option>
+                    <option value="1719">BANJARMASIN</option>
+                    <option value="1904">CENTRAL PARK</option>
+                    <option value="1608">DENPASAR</option>
+                    <option value="1905">DIVISI ONLINE TRADING</option>
+                    <option value="3922">GI ANCOL</option>
+                    <option value="3703">GI BALIKPAPAN</option>
+                    <option value="3100">GI BATAM</option>
+                    <option value="3920">GI BUMI SERPONG DAMAI</option>
+                    <option value="3402">GI C SIMANJUNTAK YOGYA</option>
+                    <option value="3919">GI CITRA GARDEN</option>
+                    <option value="3932">GI KAPUK SEDAYU SQUARE</option>
+                    <option value="3101">GI PADANG</option>
+                    <option value="3931">GI PLAZA SEMANGGI</option>
+                    <option value="3921">GI RASUNA OFFICE PARK</option>
+                    <option value="3945">GI RAWAMANGUN</option>
+                    <option value="3406">GI SALATIGA</option>
+                    <option value="3938">GI. TOTAL</option>
+                    <option value="1507">MALANG</option>
+                    <option value="1801">MANADO</option>
+                    <option value="1910">MANGGA DUA</option>
+                    <option value="1111">MEDAN</option>
+                    <option value="1204">PALEMBANG</option>
+                    <option value="1112">PEKAN BARU</option>
+                    <option value="1916">PURI</option>
+                    <option value="1406">SOLO</option>
+                    <option value="1509">SURABAYA</option>
+                    <option value="1917">WISMA</option>
+                    <option value="1405">YOGYA</option>
+                </select>
+
+            </div>
+            <button class="login-btn" onclick="sendJSON()">Download</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+ini_set("soap.wsdl_cache_enabled", "0");
+
+class Offeringbuka extends CI_Controller {
+
+    public function __construct()
+    {
+         parent::__construct();
+		 $this->load->model('pages_model');
+		 $this->load->model('menu_model');
+		 $this->load->model('botmenu_model');
+		 $this->load->model('config_model');
+		 $this->load->model('user_model');
+
+		 $this->load->library(
+		 	array(
+		 	'Bni/RegistrationMutualFundService/RegistrationMutualFundService',
+		 	'Bni/RegistrationMutualFundService/login',
+		 	'Bni/RegistrationMutualFundService/loginResponse',
+		 	'Bni/RegistrationMutualFundService/inquiryReksadana',
+		 	));
+    }
+
+	public function index()
+	{
+		$config = $this->config_model->detail(1);
+		$menu = $this->menu_model->listing();
+		$botmenu = $this->botmenu_model->listing();
+
+		$data = array(	'title'	=>	$config->site_title,
+						'meta'	=>	$config->site_meta,
+						'desc'	=>	$config->site_desc,
+						'og_url'	=>	base_url(),
+						'og_type'	=>	'website',
+						'og_title'	=>	$config->site_title,
+						'og_desc'	=>	$config->site_desc,
+						'og_image'	=>	base_url('images/logobions.png'),
+						'author'	=>	$config->name,
+						'menu' => $menu,
+						'botmenu' => $botmenu,
+						'config' => $config,
+						'isi'	=>	'home/'.$config->template.'/offeringbuka-login');
+
+		$this->load->view('home/'.$config->template.'/layout/wrapper',$data);
+		
+	}
+
+	public function loginaction()
+	{
+		
+		$userId = $this->input->post('userid');
+		$pinTrading = md5($this->input->post('pintrading'));
+
+        $client = new RegistrationMutualFundService();
+        $argsLogin = new login();
+        $argsLogin->setP([$userId, $pinTrading]);
+
+        try {
+
+             $apiResponse = $client->login($argsLogin);
+             $return = $apiResponse->getReturn();
+
+
+            list($success, $desc) = explode('|', "$return |");
+            
+            if ($success) {
+                $data_session = array(
+					'userid' => $userId,
+					'status' => "login"
+				);
+                
+                $this->session->set_userdata($data_session);
+                redirect(base_url('offeringbuka/form'));
+            } else {
+                $this->session->set_flashdata('login_error','Unable to validate useraaa');
+				redirect(base_url('offeringbuka'));
+            }
+            
+        } catch (\Exception $e) {
+            $this->session->set_flashdata('login_error','Unable to validate user');
+			redirect(base_url('offeringbuka'));
+
+        }
+        
+	}
+
+	public function logout()
+	{
+		$user_data = $this->session->userdata();
+		foreach ($user_data as $key => $value) {
+			if ($key!='__ci_last_regenerate' && $key != '__ci_vars') $this->session->unset_userdata($key);
+		}		
+		//$this->session->sess_destroy();
+		$this->session->set_flashdata('login_error','You have been logout');
+		redirect(base_url('offeringbuka'), 'refresh');
+	}
+
+	public function form(){
+		if($this->session->userdata('status') != "login"){
+			$this->session->set_flashdata('login_error','You must login to use this feature');
+			redirect(base_url('offeringbuka'));
+		} 
+
+		$config = $this->config_model->detail(1);
+		$menu = $this->menu_model->listing();
+		$botmenu = $this->botmenu_model->listing();
+
+		$data = array(	'title'	=>	$config->site_title,
+						'meta'	=>	$config->site_meta,
+						'desc'	=>	$config->site_desc,
+						'og_url'	=>	base_url(),
+						'og_type'	=>	'website',
+						'og_title'	=>	$config->site_title,
+						'og_desc'	=>	$config->site_desc,
+						'og_image'	=>	base_url('images/logobions.png'),
+						'author'	=>	$config->name,
+						'menu' => $menu,
+						'botmenu' => $botmenu,
+						'config' => $config,
+						'isi'	=>	'home/'.$config->template.'/offeringbuka-form');
+
+		$this->load->view('home/'.$config->template.'/layout/wrapper',$data);
+
+	}
+}

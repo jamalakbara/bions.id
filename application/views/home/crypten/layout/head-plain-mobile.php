@@ -1,0 +1,76 @@
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <title><?=$config->site_title?></title>
+    <link rel="shortcut icon" href="<?=base_url('assets/home/'.$config->template.'/')?>images/favicon.ico" type="image/png">
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/all.css">
+    
+    <link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/home/'.$config->template.'/')?>css/jquery.signature.css">
+
+    <link rel="stylesheet" href="<?=base_url()?>assets/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="<?=base_url('assets/admin/')?>bower_components/select2/dist/css/select2.min.css">
+
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/default.css">
+
+    
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/home/'.$config->template.'/')?>plugins/fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/home/'.$config->template.'/')?>plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+
+    <?php
+    if (isset($_SESSION['theme'])) {
+        if ($_SESSION['theme'] == 'light'){
+    ?>
+            <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/light-theme.css">
+    <?php
+        } else if ($_SESSION['theme'] == 'dark'){
+    ?>
+            <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/dark-theme.css">
+    <?php
+        } else{
+    ?>
+            <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/light-theme.css">
+    <?php
+        }
+    } else {
+    ?>
+        <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/light-theme.css">
+    <?php    
+    }
+    ?>
+
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/default.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/main.css">
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/materialize.css">
+    <link rel="stylesheet" href="<?=base_url('assets/home/'.$config->template.'/')?>css/registration/select2-materialize.css">
+
+
+    <!--====== jquery js ======-->
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/vendor/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="<?=base_url('assets/home/'.$config->template.'/')?>js/moment.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/bootstrap.min.js"></script>
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/popper.min.js"></script>
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/jquery.validate.js"></script>
+
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/vue.js"></script>
+
+    <script>
+        var base_url = '<?php echo base_url() ?>';
+    </script>
+    <script src="<?=base_url('assets/home/'.$config->template.'/')?>js/registration/00-global.js?v=<?= rand() ?>"></script>
+    
+    <?php
+        echo file_get_contents(base_url('assets/home/'.$config->template.'/js/registration/gtag/00-global-gtag.js?v=<?= rand() ?>'));
+        echo file_get_contents(base_url('assets/home/'.$config->template.'/js/registration/gtag/01-global-gtm-head.js?v=<?= rand() ?>'));
+    ?>
+
+    <?php
+        if(isset($gtag)){
+            echo $gtag;
+        }
+    ?>

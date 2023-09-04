@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax27="http://model.onlineregistrationv2.ws.bnisecurities.co.id/xsd" xmlns:ax29="http://common.util.ws.bnisecurities.co.id/xsd" xmlns:ns="http://www.bnisekuritas.co.id" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://www.bnisekuritas.co.id">
+    <wsdl:documentation>OnlineRegistrationV2Service</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax28="http://model.onlineregistrationv2.ws.bnisecurities.co.id/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.bnisekuritas.co.id">
+            <xs:import namespace="http://model.onlineregistrationv2.ws.bnisecurities.co.id/xsd"/>
+            <xs:element name="register">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="request" nillable="true" type="ax28:RegisterEntityRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:RegisterEntityResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ping">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OnlineRegistrationV2ServiceException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OnlineRegistrationV2ServiceException" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="printReport">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="formno" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="branch" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="printReportResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerForeign">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="sourceoa" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="referral" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="handphone" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="investorType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="reference" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="haveBniAcc" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerForeignResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:RegisterForeignResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sendOtp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="sourceoa" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="handphone" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sendOtpResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:SendOtpResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="validateOtp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="sourceoa" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="handphone" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="otp" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="validateOtpResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:ValidateOtpResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="convertKtp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="accType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="branch" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ktpBase64" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="convertKtpResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:OcrResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="biometric">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="accType" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="branch" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="identityNo" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="birthdate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="birthplace" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="photoBase64" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="biometricResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:BiometricEntityResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkAlreadyRegistration">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="handphone" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="accType" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkAlreadyRegistrationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax28:CheckAlreadyRegistrationEntityResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:ax210="http://common.util.ws.bnisecurities.co.id/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.onlineregistrationv2.ws.bnisecurities.co.id/xsd">
+            <xs:import namespace="http://common.util.ws.bnisecurities.co.id/xsd"/>
+            <xs:complexType name="RegisterEntityRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="acctype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresscity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresscountry" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressemail" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresshousing" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspcity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspcountry" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressphousing" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspostalcode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressppostalcode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspprovince" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressprovince" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspsame" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspstreet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspsubdistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresspvillage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressstreet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addresssubdistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addressvillage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="assetownership" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="attachmentidcard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="attachmentphotoselfie" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="attachmentphotowithidcard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="attachmentsignature" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bankbeneficiaryaccount" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bankbeneficiaryname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bankname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bankrdi" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="birthday" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="birthplace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="branch" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="correspondencetype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="educationalbg" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="educationalbgother" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fatcaaddress" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="handphone" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="haveaccbni" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="identityexpireddate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="identityissueddate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="identityissuedplace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="identitynum" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="identitytype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="inforeference" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="investmentobjectives" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="investmentobjectivesother" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="investortype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="maritalstatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="mothername" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalannualincome" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalcity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalcountry" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalpostalcode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalphone" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalincomefrequency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationaljobposition" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationallinebusiness" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalmonthlyincome" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalnetworth" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalprovince" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalsourceofincome" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalsourceofincomeother" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalstreet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalhousing" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalsubdistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationaltype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationaltypeother" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalvillage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="occupationalworkingplace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="onlinetype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoemployeeof" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoemployeeofcompany" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoemployeeofname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfohavegreencard" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfopoliticperson" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoprohibited" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoprohibitedcompany" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfoprohibitedname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="otherinfotaxoutsideindonesia" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="producttype" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="referral" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="regid" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="religion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofileagreeincome" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofileknowledge" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofilelonginvest" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofileloss" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofilepurpose" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="riskprofiletotalscore" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="source" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="spousefullname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="taxiddonthave" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="taxidnum" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RegisterEntityResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="formNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RegisterForeignResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SendOtpResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ValidateOtpResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OcrResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="data" nillable="true" type="ax29:VerijelasOcrResponse"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BiometricEntityResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CheckAlreadyRegistrationEntityResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://common.util.ws.bnisecurities.co.id/xsd">
+            <xs:complexType name="VerijelasOcrResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="data" nillable="true" type="ax29:VerijelasOcrResponseData"/>
+                    <xs:element minOccurs="0" name="errors" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="refId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="timestamp" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="trxId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="VerijelasOcrResponseData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="agama" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="alamat" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="golDarah" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="jenisKelamin" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kecamatan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kelurahanDesa" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kewarganegaraan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kota" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nama" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nik" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pekerjaan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="provinsi" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rtRw" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="statusPerkawinan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tanggalLahir" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tempatLahir" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="sendOtpRequest">
+        <wsdl:part name="parameters" element="ns:sendOtp"/>
+    </wsdl:message>
+    <wsdl:message name="sendOtpResponse">
+        <wsdl:part name="parameters" element="ns:sendOtpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pingRequest">
+        <wsdl:part name="parameters" element="ns:ping"/>
+    </wsdl:message>
+    <wsdl:message name="pingResponse">
+        <wsdl:part name="parameters" element="ns:pingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="registerForeignRequest">
+        <wsdl:part name="parameters" element="ns:registerForeign"/>
+    </wsdl:message>
+    <wsdl:message name="registerForeignResponse">
+        <wsdl:part name="parameters" element="ns:registerForeignResponse"/>
+    </wsdl:message>
+    <wsdl:message name="printReportRequest">
+        <wsdl:part name="parameters" element="ns:printReport"/>
+    </wsdl:message>
+    <wsdl:message name="printReportResponse">
+        <wsdl:part name="parameters" element="ns:printReportResponse"/>
+    </wsdl:message>
+    <wsdl:message name="OnlineRegistrationV2ServiceException">
+        <wsdl:part name="parameters" element="ns:OnlineRegistrationV2ServiceException"/>
+    </wsdl:message>
+    <wsdl:message name="checkAlreadyRegistrationRequest">
+        <wsdl:part name="parameters" element="ns:checkAlreadyRegistration"/>
+    </wsdl:message>
+    <wsdl:message name="checkAlreadyRegistrationResponse">
+        <wsdl:part name="parameters" element="ns:checkAlreadyRegistrationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="validateOtpRequest">
+        <wsdl:part name="parameters" element="ns:validateOtp"/>
+    </wsdl:message>
+    <wsdl:message name="validateOtpResponse">
+        <wsdl:part name="parameters" element="ns:validateOtpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="convertKtpRequest">
+        <wsdl:part name="parameters" element="ns:convertKtp"/>
+    </wsdl:message>
+    <wsdl:message name="convertKtpResponse">
+        <wsdl:part name="parameters" element="ns:convertKtpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="registerRequest">
+        <wsdl:part name="parameters" element="ns:register"/>
+    </wsdl:message>
+    <wsdl:message name="registerResponse">
+        <wsdl:part name="parameters" element="ns:registerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="biometricRequest">
+        <wsdl:part name="parameters" element="ns:biometric"/>
+    </wsdl:message>
+    <wsdl:message name="biometricResponse">
+        <wsdl:part name="parameters" element="ns:biometricResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OnlineRegistrationV2ServicePortType">
+        <wsdl:operation name="sendOtp">
+            <wsdl:input message="ns:sendOtpRequest" wsaw:Action="urn:sendOtp"/>
+            <wsdl:output message="ns:sendOtpResponse" wsaw:Action="urn:sendOtpResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <wsdl:input message="ns:pingRequest" wsaw:Action="urn:ping"/>
+            <wsdl:output message="ns:pingResponse" wsaw:Action="urn:pingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <wsdl:input message="ns:registerForeignRequest" wsaw:Action="urn:registerForeign"/>
+            <wsdl:output message="ns:registerForeignResponse" wsaw:Action="urn:registerForeignResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="printReport">
+            <wsdl:input message="ns:printReportRequest" wsaw:Action="urn:printReport"/>
+            <wsdl:output message="ns:printReportResponse" wsaw:Action="urn:printReportResponse"/>
+            <wsdl:fault message="ns:OnlineRegistrationV2ServiceException" name="OnlineRegistrationV2ServiceException" wsaw:Action="urn:printReportOnlineRegistrationV2ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkAlreadyRegistration">
+            <wsdl:input message="ns:checkAlreadyRegistrationRequest" wsaw:Action="urn:checkAlreadyRegistration"/>
+            <wsdl:output message="ns:checkAlreadyRegistrationResponse" wsaw:Action="urn:checkAlreadyRegistrationResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="validateOtp">
+            <wsdl:input message="ns:validateOtpRequest" wsaw:Action="urn:validateOtp"/>
+            <wsdl:output message="ns:validateOtpResponse" wsaw:Action="urn:validateOtpResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="convertKtp">
+            <wsdl:input message="ns:convertKtpRequest" wsaw:Action="urn:convertKtp"/>
+            <wsdl:output message="ns:convertKtpResponse" wsaw:Action="urn:convertKtpResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <wsdl:input message="ns:registerRequest" wsaw:Action="urn:register"/>
+            <wsdl:output message="ns:registerResponse" wsaw:Action="urn:registerResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="biometric">
+            <wsdl:input message="ns:biometricRequest" wsaw:Action="urn:biometric"/>
+            <wsdl:output message="ns:biometricResponse" wsaw:Action="urn:biometricResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OnlineRegistrationV2ServiceSoap11Binding" type="ns:OnlineRegistrationV2ServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="sendOtp">
+            <soap:operation soapAction="urn:sendOtp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <soap:operation soapAction="urn:ping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <soap:operation soapAction="urn:registerForeign" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="printReport">
+            <soap:operation soapAction="urn:printReport" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="OnlineRegistrationV2ServiceException">
+                <soap:fault use="literal" name="OnlineRegistrationV2ServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkAlreadyRegistration">
+            <soap:operation soapAction="urn:checkAlreadyRegistration" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="validateOtp">
+            <soap:operation soapAction="urn:validateOtp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="convertKtp">
+            <soap:operation soapAction="urn:convertKtp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <soap:operation soapAction="urn:register" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="biometric">
+            <soap:operation soapAction="urn:biometric" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="OnlineRegistrationV2ServiceHttpBinding" type="ns:OnlineRegistrationV2ServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="sendOtp">
+            <http:operation location="sendOtp"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <http:operation location="ping"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="registerForeign">
+            <http:operation location="registerForeign"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="printReport">
+            <http:operation location="printReport"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkAlreadyRegistration">
+            <http:operation location="checkAlreadyRegistration"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="validateOtp">
+            <http:operation location="validateOtp"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="convertKtp">
+            <http:operation location="convertKtp"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <http:operation location="register"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="biometric">
+            <http:operation location="biometric"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="OnlineRegistrationV2Service">
+        <wsdl:port name="OnlineRegistrationV2ServiceHttpSoap11Endpoint" binding="ns:OnlineRegistrationV2ServiceSoap11Binding">
+            <soap:address location="http://192.168.1.32:8080/ws/services/OnlineRegistrationV2Service/"/>
+        </wsdl:port>
+        <wsdl:port name="OnlineRegistrationV2ServiceHttpEndpoint" binding="ns:OnlineRegistrationV2ServiceHttpBinding">
+            <http:address location="http://192.168.1.32:8080/ws/services/OnlineRegistrationV2Service/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

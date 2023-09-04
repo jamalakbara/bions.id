@@ -1,0 +1,27 @@
+# Ignore application-specific config files
+/application/config/config.php
+/application/config/database.php
+
+# Ignore system directory (contains CodeIgniter core files)
+/system/
+
+# Ignore user-uploaded files and directories
+/uploads/
+/assets/*
+
+# Ignore log files
+/application/logs/
+
+# Ignore any Composer-related files and directories
+/vendor/
+composer.lock
+
+# Ignore any environment-specific configuration files
+/.env
+/.env.*
+
+/*.sql
+/sql/*
+
+/images/*
+/forum/*

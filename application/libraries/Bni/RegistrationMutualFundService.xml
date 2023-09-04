@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://www.bnisecurities.co.id" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.bnisecurities.co.id">
+    <wsdl:documentation>RegistrationMutualFundService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.bnisecurities.co.id">
+            <xs:element name="RegistrationMutualFundServiceException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="RegistrationMutualFundServiceException" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="register">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ping">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiryReksadana">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiryReksadanaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiry">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="p" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isSendEmail" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inquiryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="inquiryReksadanaRequest">
+        <wsdl:part name="parameters" element="ns:inquiryReksadana"/>
+    </wsdl:message>
+    <wsdl:message name="inquiryReksadanaResponse">
+        <wsdl:part name="parameters" element="ns:inquiryReksadanaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pingRequest">
+        <wsdl:part name="parameters" element="ns:ping"/>
+    </wsdl:message>
+    <wsdl:message name="pingResponse">
+        <wsdl:part name="parameters" element="ns:pingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="inquiryRequest">
+        <wsdl:part name="parameters" element="ns:inquiry"/>
+    </wsdl:message>
+    <wsdl:message name="inquiryResponse">
+        <wsdl:part name="parameters" element="ns:inquiryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="loginRequest">
+        <wsdl:part name="parameters" element="ns:login"/>
+    </wsdl:message>
+    <wsdl:message name="loginResponse">
+        <wsdl:part name="parameters" element="ns:loginResponse"/>
+    </wsdl:message>
+    <wsdl:message name="registerRequest">
+        <wsdl:part name="parameters" element="ns:register"/>
+    </wsdl:message>
+    <wsdl:message name="registerResponse">
+        <wsdl:part name="parameters" element="ns:registerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RegistrationMutualFundServiceException">
+        <wsdl:part name="parameters" element="ns:RegistrationMutualFundServiceException"/>
+    </wsdl:message>
+    <wsdl:portType name="RegistrationMutualFundServicePortType">
+        <wsdl:operation name="inquiryReksadana">
+            <wsdl:input message="ns:inquiryReksadanaRequest" wsaw:Action="urn:inquiryReksadana"/>
+            <wsdl:output message="ns:inquiryReksadanaResponse" wsaw:Action="urn:inquiryReksadanaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <wsdl:input message="ns:pingRequest" wsaw:Action="urn:ping"/>
+            <wsdl:output message="ns:pingResponse" wsaw:Action="urn:pingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <wsdl:input message="ns:inquiryRequest" wsaw:Action="urn:inquiry"/>
+            <wsdl:output message="ns:inquiryResponse" wsaw:Action="urn:inquiryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <wsdl:input message="ns:loginRequest" wsaw:Action="urn:login"/>
+            <wsdl:output message="ns:loginResponse" wsaw:Action="urn:loginResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <wsdl:input message="ns:registerRequest" wsaw:Action="urn:register"/>
+            <wsdl:output message="ns:registerResponse" wsaw:Action="urn:registerResponse"/>
+            <wsdl:fault message="ns:RegistrationMutualFundServiceException" name="RegistrationMutualFundServiceException" wsaw:Action="urn:registerRegistrationMutualFundServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="RegistrationMutualFundServiceSoap11Binding" type="ns:RegistrationMutualFundServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="inquiryReksadana">
+            <soap:operation soapAction="urn:inquiryReksadana" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <soap:operation soapAction="urn:ping" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <soap:operation soapAction="urn:login" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <soap:operation soapAction="urn:inquiry" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <soap:operation soapAction="urn:register" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RegistrationMutualFundServiceException">
+                <soap:fault use="literal" name="RegistrationMutualFundServiceException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RegistrationMutualFundServiceHttpBinding" type="ns:RegistrationMutualFundServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="inquiryReksadana">
+            <http:operation location="inquiryReksadana"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ping">
+            <http:operation location="ping"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <http:operation location="login"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <http:operation location="inquiry"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="register">
+            <http:operation location="register"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="RegistrationMutualFundService">
+        <wsdl:port name="RegistrationMutualFundServiceHttpSoap11Endpoint" binding="ns:RegistrationMutualFundServiceSoap11Binding">
+            <soap:address location="http://192.168.16.9:8080/ws/services/RegistrationMutualFundService.RegistrationMutualFundServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="RegistrationMutualFundServiceHttpsSoap11Endpoint" binding="ns:RegistrationMutualFundServiceSoap11Binding">
+            <soap:address location="https://192.168.16.9:8443/ws/services/RegistrationMutualFundService.RegistrationMutualFundServiceHttpsSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="RegistrationMutualFundServiceHttpEndpoint" binding="ns:RegistrationMutualFundServiceHttpBinding">
+            <http:address location="http://192.168.16.9:8080/ws/services/RegistrationMutualFundService.RegistrationMutualFundServiceHttpEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="RegistrationMutualFundServiceHttpsEndpoint" binding="ns:RegistrationMutualFundServiceHttpBinding">
+            <http:address location="https://192.168.16.9:8443/ws/services/RegistrationMutualFundService.RegistrationMutualFundServiceHttpsEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
