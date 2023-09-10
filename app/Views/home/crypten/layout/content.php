@@ -1,5 +1,3 @@
-<?php
-
-if($isi) {
-	return view($isi);
-}
+<?php if ($isi) : ?>
+    <?= view($isi) ?>
+<?php endif; ?>

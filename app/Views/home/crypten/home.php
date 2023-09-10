@@ -1,5 +1,11 @@
-<?php if($bions["title"]) { require_once('banner.php');  }?>
-<?php require_once('market.php');?>
-<?php require_once('kalkulatorsaham.php');?>
-<?php require_once('faqfront.php');?>
-<?php require_once('newsletter.php');?>
+<?php if (!empty($bions["title"])) : ?>
+    <?= view('home/' . $config["template"] .'/banner.php') ?>
+<?php endif; ?>
+
+<?= view('home/' . $config["template"] .'/market.php') ?>
+
+<?= view('home/' . $config["template"] .'/kalkulatorsaham.php') ?>
+
+<?= view('home/' . $config["template"] .'/faqfront.php') ?>
+
+<?= view('home/' . $config["template"] .'/newsletter.php') ?>

@@ -47,6 +47,9 @@ class Home extends BaseController
             $faq = $this->faqModel->getFaqsByCategory(1);
         }
 
+        $task = service('uri')->getSegments(1);
+        $action = service('uri')->getSegments(2);
+
         $data = [
             'title' => $config["site_title"],
             'meta' => $config["site_meta"],
@@ -64,11 +67,11 @@ class Home extends BaseController
             'faq' => $faq,
             'config' => $config,
             'menuModel' => $menuModel,
+            'task' => $task,
+            'action' => $action,
             'isi' => 'home/' . $config["template"] . '/home',
         ];
 
-        var_dump('home/' . $config["template"] . '/layout/wrapper');
         return view('home/' . $config["template"] . '/layout/wrapper', $data);
-        // return view('welcome_message');
     }
 }

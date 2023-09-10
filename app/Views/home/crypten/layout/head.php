@@ -28,10 +28,6 @@
     <link rel="stylesheet" href="<?=base_url('assets/home/'.$config["template"].'/')?>css/bootstrap.min.css">
     
 <?php
-	// $task = $this->uri->rsegment(1);
-	$task = '';
-	// $action = $this->uri->rsegment(2);
-	$action = '';
 	if($task != 'user') {
 ?>
     <link rel="stylesheet" href="<?=base_url('assets/home/'.$config["template"].'/')?>css/nice-select.css">
