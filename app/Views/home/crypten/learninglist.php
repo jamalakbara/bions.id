@@ -1,12 +1,12 @@
     <!--====== PAGE TITLE PART START ======-->
     
-    <div class="page-title-area bg_cover" style="background-image: url(<?=base_url('assets/home/'.$config->template.'/')?>images/banner-bg.png);">
+    <div class="page-title-area bg_cover" style="background-image: url(<?= '/assets/home/'.$config['template'].'/'?>images/banner-bg.png);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-title-content">
                         <span>Learning Center</span>
-                        <h1 class="title"><?=strtoupper($category->title)?></h1>
+                        <h1 class="title"><?=strtoupper($category['title'])?></h1>
                         <form method="post" action="<?=base_url('edukasi/search')?>">
                             <div class="input-box">
                                 <i class="far fa-search"></i>
@@ -19,7 +19,7 @@
 <?php
 	foreach($catmenu as $cat) {
 ?>
-                                    <option value="<?=$cat->id?>"><?=$cat->title?></option>
+                                    <option value="<?=$cat['id']?>"><?=$cat['title']?></option>
 <?php
 	}
 ?>
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="page-thumb">
-            <img src="<?=base_url('assets/home/'.$config->template.'/')?>images/page-thumb.png" alt="">
+            <img src="<?= '/assets/home/'.$config['template'].'/' ?>images/page-thumb.png" alt="">
         </div>
     </div>
     
@@ -70,24 +70,24 @@
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="blog-item mt-30" style="height: 100% !important;">
                         <div class="blog-thumb" style="height: 37% !important; background-color: white !important;">
-                            <img src="<?=base_url('images/learning/'.$row->file_name)?>" alt="<?=$row->title?>">
+                            <img src="<?=base_url('images/learning/'.$row['file_name'])?>" alt="<?=$row['title']?>">
                         </div>
                         <div class="blog-content text-center" style="height: 57% !important;">
-                            <span><span><?=$author?></span>    |    <?=$row->tanggal?></span>
+                            <span><span><?=$author?></span>    |    <?=$row['tanggal']?></span>
                             <br/>
                             <a href="<?php 
-										if ($row->catid == 1) {
-											echo base_url('edukasi/saham/'.$row->url);
-										} else if($row->catid == 2){
-											echo base_url('edukasi/reksadana/'.$row->url);
-										} else if($row->catid == 3){
-											echo base_url('edukasi/fixedincome/'.$row->url);
-										} else if($row->catid == 4){
-											echo base_url('edukasi/video/'.$row->url);
-										}else if($row->catid == 13){
-											echo base_url('edukasi/marketupdate/'.$row->url);
+										if ($row['catid'] == 1) {
+											echo base_url('edukasi/saham/'.$row['url']);
+										} else if($row['catid'] == 2){
+											echo base_url('edukasi/reksadana/'.$row['url']);
+										} else if($row['catid'] == 3){
+											echo base_url('edukasi/fixedincome/'.$row['url']);
+										} else if($row['catid'] == 4){
+											echo base_url('edukasi/video/'.$row['url']);
+										}else if($row['catid'] == 13){
+											echo base_url('edukasi/marketupdate/'.$row['url']);
 										}
-									?>"><?=$row->title?></a>
+									?>"><?=$row['title']?></a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="col-lg-12">
                     <div class="pagination-area d-flex justify-content-start mt-50">					
                         <nav aria-label="Page navigation ">
-						<?=$this->pagination->create_links();?>	
+						
                         </nav>
                     </div>
                 </div>

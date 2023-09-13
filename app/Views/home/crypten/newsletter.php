@@ -13,8 +13,10 @@
 							</label>
 							<div class="col-sm-4 align-self-center">
 <?php
+  helper('form');
+  
 	// echo validation_errors('<div class="alert alert-warning">','</div>');
-	// echo form_open('user/registertrial', 'class="form-horizontal"');
+	echo form_open('user/registertrial', 'class="form-horizontal"');
 ?>
 <div class="input-group mb-3">
   <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
@@ -29,7 +31,7 @@
   </div>
 </div>
 <?php
-	// echo form_close();
+	echo form_close();
 ?> 
 
 							</div>

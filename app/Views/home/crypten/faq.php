@@ -1,6 +1,6 @@
     <!--====== PAGE TITLE PART START ======-->
     
-    <div class="page-title-area bg_cover" style="background-image: url(<?=base_url('assets/home/'.$config->template.'/')?>images/banner-bg.png);">
+    <div class="page-title-area bg_cover" style="background-image: url(<?= '/assets/home/'.$config['template'].'/' ?>images/banner-bg.png);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="page-thumb">
-            <img src="<?=base_url('assets/home/'.$config->template.'/')?>images/page-thumb-faq.png" alt="">
+            <img src="<?= '/assets/home/'.$config['template'].'/' ?>images/page-thumb-faq.png" alt="">
         </div>
     </div>
     
@@ -48,7 +48,7 @@
 			if($cnt1 == 0) { $active = "active"; } else { $active = ""; }
 ?>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link <?=$active?>" id="pills-<?=$row->id?>-tab" data-toggle="pill" href="#pills-<?=$row->id?>" role="tab" aria-controls="pills-<?=$row->id?>" aria-selected="true"><?=$row->title?></a>
+                                <a class="nav-link <?=$active?>" id="pills-<?=$row['id']?>-tab" data-toggle="pill" href="#pills-<?=$row['id']?>" role="tab" aria-controls="pills-<?=$row['id']?>" aria-selected="true"><?=$row['title']?></a>
                             </li>
 <?php
 	$cnt1++;
@@ -60,10 +60,10 @@
 <?php
 	$cnt2 = 0;
 	foreach($categories as $row) { 
-		$faq = $this->faq_model->listingcat($row->id);
+		$faq = $faqModel->getFaqsByCategory($row['id']);
 			if($cnt2 == 0) { $tabactive = "show active"; } else { $tabactive = ""; }
 ?>
-                        <div class="tab-pane fade <?=$tabactive?>" id="pills-<?=$row->id?>" role="tabpanel" aria-labelledby="pills-<?=$row->id?>-tab">
+                        <div class="tab-pane fade <?=$tabactive?>" id="pills-<?=$row['id']?>" role="tabpanel" aria-labelledby="pills-<?=$row['id']?>-tab">
                             <div class="faq-accordion">
                                 <div class="accrodion-grp"  data-grp-name="faq-accrodion">
 <?php
@@ -74,11 +74,11 @@
                                     <div class="accrodion <?=$listactive?>  animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
                                         <div class="accrodion-inner">
                                             <div class="accrodion-title">
-                                                <h4><?=$rowfaq->question?>?</h4>
+                                                <h4><?=$rowfaq['question']?>?</h4>
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <?=$rowfaq->answer?>
+                                                    <?=$rowfaq['answer']?>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div><!-- /.accrodion-inner -->

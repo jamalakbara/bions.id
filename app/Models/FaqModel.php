@@ -19,5 +19,10 @@ class FaqModel extends Model
         return $this->where('catid', $catid)->findAll();
     }
 
+    public function getConfigDetail($id)
+    {
+        return $this->where('id', $id)->first();
+    }
+
     // Add other methods as needed
 }

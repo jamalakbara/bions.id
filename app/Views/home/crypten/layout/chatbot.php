@@ -135,13 +135,14 @@ $session_id = $tday;
 //}
 //echo $session_id = session_id(); //$sessionname = $_SESSION['botid'];
 // $sessbotid = $this->session->userdata('botid');
-$sessbotid = null;
+$sessbotid = session()->get('botid');
 if(!isset($sessbotid)) {
 ?>
                <!--start code-->
                <div class="card chat-popup">
 <?php
-//	echo form_open(base_url(uri_string()), 'class="form-horizontal"');
+	helper('form');
+	echo form_open(base_url(uri_string()), 'class="form-horizontal"');
 ?>
                   <div class="card-body messages-box">
 				  <center><img src="<?=base_url('images/bot_avatar2.png')?>" class="avatar-sm rounded-circle"></center>
@@ -171,7 +172,7 @@ if(!isset($sessbotid)) {
                   </div>
                </div>
 <?php
-//	echo form_close();
+	echo form_close();
 ?>
 			<!--end code-->
 <?php	

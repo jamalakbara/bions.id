@@ -24,5 +24,10 @@ class CategoriesModel extends Model
         return $this->where('modules', $module)->findAll();
     }
 
+    public function getConfigDetail($id)
+    {
+        return $this->where('id', $id)->first();
+    }
+
     // Add other methods as needed
 }
